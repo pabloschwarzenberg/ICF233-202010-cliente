@@ -1,0 +1,7 @@
+{
+  "name": "planificador",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

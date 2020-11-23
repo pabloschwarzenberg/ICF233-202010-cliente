@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form *ngIf="!isAuthenticated" [formGroup]="form" (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" type="text" class="form-control" formControlName="username">
+        <div *ngIf="form.controls.username.touched &&   !form.controls.username.valid" class="alert alert-danger">
+          Debe ingresar el username
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" class="form-control" formControlName="password">
+        <div *ngIf="form.controls.password.touched &&   !form.controls.password.valid" class="alert alert-danger">
+            Debe ingresar la clave
+        </div>
+      </div>
+      <div *ngIf="isAuthenticationFailed" class="alert alert-danger">
+          Usuario o clave incorrecta
+      </div>
+      <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+    <ion-card class="welcome-card" *ngIf="isAuthenticated">
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Planificación Académica</ion-card-subtitle>
+        <ion-card-title>Bienvenido</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Para ver los cursos disponibles utilice el menú de la izquierda.</p>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

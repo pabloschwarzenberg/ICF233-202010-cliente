@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Lista de Cursos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let curso of cursos">
+      {{curso.sigla}}
+      <div class="item-note" slot="end">
+        {{curso.nombre}}
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
